@@ -1,0 +1,40 @@
+<div class="container" ng-controller="HomeCtrl as home">
+
+    <div class="list-container">
+
+        <div class="control-btn">
+            <a ui-sref="history"><button type="button" class="btn btn-default links-btn">Ta Do History</button></a>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading panel-default rust-font font-pb">Active</div>
+            <div class="panel-body text-center">
+
+                <ul class="list-group text-left">
+
+                    <span>
+                      <li class="list-group-item list-style-do">
+                        <form name="taskForm">
+                          <button ng-disabled="taskForm.$invalid" ng-click="home.addTask()" class="submit-with-icon"><span class="glyphicon glyphicon-ok-circle" style="vertical-align: middle;"></span></button>
+                          <input style="" class="text-box-style" ng-model="home.newTask.title" placeholder="Enter New Ta Do" type="text" required />
+                        </form>
+                      </li>
+                    </span>
+
+                    <span ng-repeat="task in home.tasksIncomplete">
+                      <li class="list-group-item list-style-do" ng-if="(home.currentTime - task.date) < 60">
+                        <button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button>{{ task.title }}
+                      </li>
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--
+    0. test mobile views
+    1. Active task editing (with pencil icon)
+    2. Clear task history
+    3. User sign in
+    -->
