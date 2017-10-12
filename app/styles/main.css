@@ -1,4 +1,13 @@
 
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  background-image: url("/assets/images/background.jpg");
+  background-repeat: repeat-y;
+}
+
 .pull-it-right {
     text-align: right;
 }
@@ -16,9 +25,10 @@
 div.list-container {
   display: table;
   margin: 0 auto;
+  height: 100vh;
 }
 
-.navbar-fixed-bottom{
+#footer{
   font-family: Piedra;
   font-style: normal;
   font-variant: normal;
@@ -28,11 +38,6 @@ div.list-container {
   letter-spacing: .5px;
 	vertical-align:middle;
 	text-align:center;
-}
-
-#layout {
-  background-image: url("/assets/images/background.jpg");
-  height:100vh;
 }
 
 .rust-font {
@@ -70,7 +75,7 @@ div.list-container {
   margin-bottom: 15px;
 	/*vertical-align:middle;*/
 	text-align:center;
-  background:url(/assets/images/wood-plank.png) no-repeat center center;
+  background:url(/assets/images/wood-plank-new.png) no-repeat center center;
 	height:200px;
 	width:390px;
 }
