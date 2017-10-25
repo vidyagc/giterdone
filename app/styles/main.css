@@ -8,10 +8,6 @@ body {
   background-repeat: repeat-y;
 }
 
-.strike {
-  text-decoration: line-through;
-}
-
 .pull-it-right {
     text-align: right;
 }

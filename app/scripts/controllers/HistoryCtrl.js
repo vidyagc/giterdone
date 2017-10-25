@@ -25,12 +25,6 @@
           });
         }
 
-        // this.deleteAllExpired = function() {
-        //   ref.orderByChild("date").endAt(Math.round(Date.now() / 1000) - 60).on("child_added", function(snapshot) {
-        //     snapshot.ref.remove();
-        //   });
-        // }
-
   }
 
     angular

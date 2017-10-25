@@ -25,12 +25,6 @@
                         <button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button>{{ task.title }}
                       </li>
                     </span>
-
-                    <!-- <span ng-repeat="task in home.tasksIncomplete">
-                      <li class="list-group-item list-style-do" ng-if="(home.currentTime - task.date) < 60">
-                        <button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button>{{ task.title }}
-                      </li>
-                    </span> -->
                 </ul>
             </div>
         </div>
@@ -43,8 +37,7 @@
 </div>
 
 <!--
-    0. test mobile views
-    1. Active task editing (with pencil icon)
-    2. Clear task history
-    3. User sign in
+    1. test mobile views
+    2. Active task editing (with pencil icon) // change status to hold, when edit clicked so not turned to expired while editing, then change back to incomplete when done editing??
+    3. User sign in -- cookies enabled cuz do a refresh with delete all.
     -->

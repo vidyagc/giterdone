@@ -15,18 +15,10 @@
             firebase.database().ref('tasks/' + taskid.$id).set({
                 date: taskid.date,
                 title: taskid.title,
-                status: 'complete',
-                completed: true
+                status: 'complete'
             });
 
         }
-
-        // setInterval(function(){
-        // var ref = firebase.database().ref("tasks").equalTo('staus', 'incomplete');
-        // ref.orderByChild("date").endAt(Math.round(Date.now() / 1000) - 60).on("child_added", function(snapshot) {
-        //   snapshot.ref.update({status: 'expired'})
-        //   });
-        // }, 1000)
 
     }
 
