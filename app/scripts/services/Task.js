@@ -6,9 +6,17 @@
 
         Task.tasksIncomplete = $firebaseArray(ref.orderByChild("status").equalTo("incomplete"));
         Task.tasksComplete = $firebaseArray(ref.orderByChild("status").equalTo("complete"));
-        Task.tasksExpired = $firebaseArray(ref.orderByChild("date").endAt(Math.round(Date.now() / 1000) - 10));
+        Task.tasksExpired = $firebaseArray(ref.orderByChild("status").equalTo("expired"));
+        // Task.tasksExpired = $firebaseArray(ref.orderByChild("date").endAt(Math.round(Date.now() / 1000) - 60));
 
         Task.currentTime = Math.round(Date.now() / 1000);
+
+        setInterval(function(){
+        var ref = firebase.database().ref("tasks");
+        ref.orderByChild("date").endAt(Math.round(Date.now() / 1000) - 60).on("child_added", function(snapshot) {
+          snapshot.ref.update({status: 'expired'})
+          });
+        }, 1000)
 
         return Task;
     }

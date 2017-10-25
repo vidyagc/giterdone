@@ -20,12 +20,17 @@
                         </form>
                       </li>
                     </span>
-
                     <span ng-repeat="task in home.tasksIncomplete">
-                      <li class="list-group-item list-style-do" ng-if="(home.currentTime - task.date) < 60">
+                      <li class="list-group-item list-style-do">
                         <button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button>{{ task.title }}
                       </li>
                     </span>
+
+                    <!-- <span ng-repeat="task in home.tasksIncomplete">
+                      <li class="list-group-item list-style-do" ng-if="(home.currentTime - task.date) < 60">
+                        <button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button>{{ task.title }}
+                      </li>
+                    </span> -->
                 </ul>
             </div>
         </div>

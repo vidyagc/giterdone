@@ -8,6 +8,10 @@ body {
   background-repeat: repeat-y;
 }
 
+.strike {
+  text-decoration: line-through;
+}
+
 .pull-it-right {
     text-align: right;
 }
@@ -155,6 +159,11 @@ div.list-container {
 }
 
 .glyphicon.glyphicon-ok-sign {
+  font-size: 25px;
+  color: crimson;
+}
+
+.glyphicon.glyphicon-remove-circle {
   font-size: 25px;
   color: crimson;
 }

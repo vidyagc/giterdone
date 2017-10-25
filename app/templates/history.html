@@ -12,20 +12,26 @@
             <div class="panel-body">
               <div style="width:400px"></div>
                 <div class="control-btn">
-                    <button ng-click="history.delete()" type="button" class="btn btn-default links-btn" id="clear-btn" style="float: left;">Clear All</button>
+                    <button ng-click="history.deleteAllComplete(); history.deleteAllExpired()" type="button" class="btn btn-default links-btn" id="clear-btn" style="float: left;" onclick="window.location = window.location">Clear All</button>
                 </div>
 
                 <p>&nbsp;</p>
                 <ul class="list-group text-left">
                     <span ng-repeat="task in history.tasksComplete">
-                      <li class="list-group-item list-style-do"><s>{{ task.title }}</s>
+                      <li class="list-group-item list-style-do"><button class="submit-with-icon" ng-click="history.deleteTask(task)"><span class="glyphicon glyphicon-remove-circle" style="vertical-align: middle; margin-right:5px"></span></button><s>{{ task.title }}</s>
                       </li>
                     </span>
 
-                    <span ng-repeat="task in history.tasksIncomplete">
-                      <li class="list-group-item list-style-do" ng-if="(history.currentTime - task.date) > 60">{{ task.title }}
+                    <span ng-repeat="task in history.tasksExpired">
+                      <li class="list-group-item list-style-do"><button class="submit-with-icon" ng-click="history.deleteTask(task)"><span class="glyphicon glyphicon-remove-circle" style="vertical-align: middle; margin-right:5px"></span></button><span ng-class="{'strike': task.completed === true}">{{ task.title }}</span>
                       </li>
                     </span>
+
+                    <!-- <span ng-repeat="task in history.tasksIncomplete">
+                      <li class="list-group-item list-style-do" ng-if="(history.currentTime - task.date) > 60"><button class="submit-with-icon" ng-click="history.deleteTask(task)"><span class="glyphicon glyphicon-remove-circle" style="vertical-align: middle; margin-right:5px"></span></button>{{ task.title }}
+                      </li>
+                    </span> -->
+
                 </ul>
             </div>
 
