@@ -14,7 +14,7 @@
 
                     <span>
                       <li class="list-group-item list-style-do">
-                        <form name="taskForm">
+                        <form name="taskForm" novalidate>
                           <button ng-disabled="taskForm.$invalid" ng-click="home.addTask()" class="submit-with-icon"><span class="glyphicon glyphicon-ok-circle" style="vertical-align: middle;"></span></button>
                           <input style="" class="text-box-style" ng-model="home.newTask.title" placeholder="Enter New Ta Do" type="text" required />
                         </form>
