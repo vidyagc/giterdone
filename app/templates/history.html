@@ -1,4 +1,4 @@
-<div class="container" ng-controller="HistoryCtrl as history">
+<div class="container">
 
     <div class="list-container">
 
@@ -12,7 +12,7 @@
             <div class="panel-body">
               <div style="width:400px"></div>
                 <div class="control-btn">
-                    <button ng-click="history.deleteAllComplete(); history.deleteAllExpired();" type="button" class="btn btn-default links-btn" id="clear-btn" style="float: left;" onclick="setTimeout(function(){ window.location.reload(); });">Clear All</button>
+                    <button ng-click="history.deleteAll();"  type="button" class="btn btn-default links-btn" id="clear-btn" style="float: left;" >Clear All</button>
                 </div>
 
                 <p>&nbsp;</p>

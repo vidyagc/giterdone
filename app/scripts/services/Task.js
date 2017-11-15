@@ -11,14 +11,14 @@
         Task.currentTime = Math.round(Date.now() / 1000);
 
         setInterval(function(){
-        var query = firebase.database().ref("tasks").orderByChild("date").endAt(Math.round(Date.now() / 1000) - 60);
-        query.on("value", function(snapshot) {
-          snapshot.forEach(function(snapshot) {
-            if (snapshot.val().status == "incomplete") {
-              snapshot.ref.update({status: 'expired'})
-            }
+          var query = ref.orderByChild("date").endAt(Math.round(Date.now() / 1000) - 60);
+          query.on("value", function(snapshot) {
+            snapshot.forEach(function(snapshot) {
+              if (snapshot.val().status == "incomplete") {
+                snapshot.ref.update({status: 'expired'})
+              }
+            });
           });
-        });
         }, 1000)
 
         return Task;

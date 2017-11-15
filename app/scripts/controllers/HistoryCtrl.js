@@ -4,25 +4,21 @@
         this.tasksComplete = Task.tasksComplete;
         this.tasksExpired = Task.tasksExpired;
         this.tasksIncomplete = Task.tasksIncomplete;
-        var ref = firebase.database().ref("tasks");
-
-        this.currentTime = Task.currentTime;
-        var expireTime = Task.currentTime-60;
+        var ref = firebase.database().ref().child("tasks");
 
         this.deleteTask = function(taskid) {
             firebase.database().ref('tasks/' + taskid.$id).remove();
         }
-
-        this.deleteAllComplete = function() {
-          ref.orderByChild("status").equalTo("complete").on("child_added", function(snapshot) {
-            snapshot.ref.remove();
-          });
+        var removeSnap = function(snapshot) {
+          snapshot.ref.remove();
         }
 
-        this.deleteAllExpired = function() {
-          ref.orderByChild("status").equalTo("expired").on("child_added", function(snapshot) {
-            snapshot.ref.remove();
-          });
+        this.deleteAll = function() {
+          ref.orderByChild("status").equalTo("complete").on("child_added", removeSnap);
+          ref.off("child_added", removeSnap);
+
+          ref.orderByChild("status").equalTo("expired").on("child_added", removeSnap);
+          ref.off("child_added", removeSnap);
         }
 
   }
