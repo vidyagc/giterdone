@@ -1,8 +1,8 @@
 (function() {
-    function HomeCtrl($scope, $state, $interval, Task) {
+    function HomeCtrl($state, Task) {
 
         this.tasksIncomplete = Task.tasksIncomplete;
-        this.currentTime = Task.currentTime;
+        // this.currentTime = Task.currentTime;
 
         this.addTask = function() {
             this.newTask.status = 'incomplete';
@@ -24,5 +24,5 @@
 
     angular
         .module('giterdone')
-        .controller('HomeCtrl', ['$state', '$scope', '$interval', 'Task', HomeCtrl]);
+        .controller('HomeCtrl', ['$state', 'Task', HomeCtrl]);
 })();
