@@ -15,12 +15,9 @@
 
         this.deleteAll = function() {
           ref.orderByChild("status").equalTo("complete").on("child_added", removeSnap);
-
           ref.orderByChild("status").equalTo("expired").on("child_added", removeSnap);
-
           ref.off("child_added", removeSnap);
         }
-
   }
 
     angular

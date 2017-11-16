@@ -9,7 +9,7 @@ body {
 }
 
 .pull-it-right {
-    text-align: right;
+  text-align: right;
 }
 
 .list-style-do {
@@ -22,13 +22,26 @@ body {
   border-color: #887159 !important;
 }
 
+table {
+  width: 372px;
+  table-layout: fixed;
+}
+
+.text-td {
+  word-wrap:break-word;
+}
+
+.icon-td {
+  vertical-align: top
+}
+
 div.list-container {
   display: table;
   margin: 0 auto;
   height: 100vh;
 }
 
-#footer{
+#footer {
   font-family: Piedra;
   font-style: normal;
   font-variant: normal;
@@ -38,6 +51,16 @@ div.list-container {
   letter-spacing: .5px;
 	vertical-align:middle;
 	text-align:center;
+}
+
+#priority-font {
+  font-family: Piedra;
+  font-style: normal;
+  font-variant: normal;
+  /*font-weight: 100;*/
+  line-height: 20px;
+  font-size: 15px;
+  letter-spacing: .5px;
 }
 
 .rust-font {
@@ -103,9 +126,10 @@ div.list-container {
 
 .submit-with-icon {
   background: transparent;
-    border: 0px;
-    padding: 0;
-    outline: 0;
+  border: 0px;
+  padding: 0;
+  outline: 0;
+  float: left;
 }
 
 .control-btn {
@@ -135,12 +159,12 @@ div.list-container {
 
 .text-box-style {
   background: transparent;
-    border: 0px;
-    outline: 0;
-    line-height: 25px;
-    padding: 0 0 0 5px;
-    vertical-align: bottom;
-    width: 325px;
+  border: 0px;
+  outline: 0;
+  line-height: 25px;
+  padding: 0 0 0 5px;
+  vertical-align: bottom;
+  width: 325px;
 }
 
 #clear-btn {
