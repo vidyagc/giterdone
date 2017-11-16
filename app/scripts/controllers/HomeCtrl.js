@@ -2,7 +2,6 @@
     function HomeCtrl($state, Task) {
 
         this.tasksIncomplete = Task.tasksIncomplete;
-        // this.currentTime = Task.currentTime;
 
         this.addTask = function() {
             this.newTask.status = 'incomplete';
