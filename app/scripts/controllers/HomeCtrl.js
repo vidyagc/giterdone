@@ -20,7 +20,14 @@
                 title: taskid.title,
                 status: 'complete'
             });
+          }
 
+            this.updateTask = function(taskid, blah) {
+              firebase.database().ref('tasks/' + taskid.$id).set({
+                  date: taskid.date,
+                  title: blah,
+                  status: taskid.status
+              });
         }
 
     }
