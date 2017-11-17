@@ -27,8 +27,9 @@
                     </span>
                     <span ng-repeat="task in home.tasksIncomplete | orderBy:'priority'">
                         <li class="list-group-item list-style-do" ng-class="{'h-fade': task.priority == 1, 'm-fade': task.priority == 2, 'l-fade': task.priority == 3}">
-                          <table><col width="35"><col width="337"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button></td><td class="text-td">{{ task.title }}</td></tr></table>
-                            <!-- <td class="icon-td"><button type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil"></span></button></td> <col width="27">-->
+                          <table><col width="35"><col width="310"><col width="27"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button></td><td class="text-td">{{ task.title }}</td><td class="icon-td"><button type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil"></span></button></td></tr>
+                          </table>
+                            <!-- <span ng-hide="editform"><tr>{{color.name}} test</tr></span> ng-click="color.name='hi'" -->
                         </li>
                     </span>
                 </ul>
