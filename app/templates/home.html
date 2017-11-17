@@ -19,16 +19,17 @@
 
                           <input style="text" class="text-box-style" ng-model="home.newTask.title" placeholder="Enter New Ta Do" type="text" required /><br>
                           <span style="display: block; padding-left: 30px;" id="priority-font">Priority&nbsp;&nbsp;
-                          <input type="radio" name="priority" ng-model="home.newTask.priority" value="h"> High
-                          <input type="radio" name="priority" ng-model="home.newTask.priority" value="m" checked="checked"> Medium
-                          <input type="radio" name="priority" ng-model="home.newTask.priority" value="l"> Low</span>
+                          <input type="radio" name="priority" ng-model="home.newTask.priority" value=1> High
+                          <input type="radio" name="priority" ng-model="home.newTask.priority" value=2 ng-checked="true"> Medium
+                          <input type="radio" name="priority" ng-model="home.newTask.priority" value=3> Low</span>
                         </form>
                       </li>
                     </span>
-                    <span ng-repeat="task in home.tasksIncomplete">
-                      <li class="list-group-item list-style-do">
-                        <table><col width="35"><col width="337"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button></td><td class="text-td">{{ task.title }}</td></tr></table>
-                      </li>
+                    <span ng-repeat="task in home.tasksIncomplete | orderBy:'priority'">
+                        <li class="list-group-item list-style-do" ng-class="{'h-fade': task.priority == 1, 'm-fade': task.priority == 2, 'l-fade': task.priority == 3}">
+                          <table><col width="35"><col width="337"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button></td><td class="text-td">{{ task.title }}</td></tr></table>
+                            <!-- <td class="icon-td"><button type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil"></span></button></td> <col width="27">-->
+                        </li>
                     </span>
                 </ul>
             </div>

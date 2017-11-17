@@ -18,8 +18,8 @@ body {
   min-width: 400px;
   padding-left:5px;
   text-align: left;
-  background: #ebe3c3 !important;
-  border-color: #887159 !important;
+  background: #ebe3c3 !important; /*  */
+  border-color: #887159 !important; /*  */
 }
 
 table {
@@ -41,6 +41,21 @@ div.list-container {
   height: 100vh;
 }
 
+.h-fade {
+  background-image: linear-gradient(left, red, red .35%, transparent 2.45%, transparent 100%) !important;
+  background-image: -webkit-linear-gradient(left, red, red .35%, transparent 2.45%, transparent 100%) !important;
+}
+
+.m-fade {
+  background-image: linear-gradient(left, goldenrod, goldenrod .35%, transparent 2.45%, transparent 100%) !important;
+  background-image: -webkit-linear-gradient(left, goldenrod, goldenrod .35%, transparent 2.45%, transparent 100%) !important;
+}
+
+.l-fade {
+  background-image: linear-gradient(left, DarkSeaGreen , DarkSeaGreen  .35%, transparent 2.45%, transparent 100%) !important;
+  background-image: -webkit-linear-gradient(left, DarkSeaGreen , DarkSeaGreen   .35%, transparent 2.45%, transparent 100%) !important;
+}
+
 #footer {
   font-family: Piedra;
   font-style: normal;
@@ -59,7 +74,7 @@ div.list-container {
   font-variant: normal;
   /*font-weight: 100;*/
   line-height: 20px;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: .5px;
 }
 
@@ -186,6 +201,11 @@ div.list-container {
 .glyphicon.glyphicon-remove {
   font-size: 17px;
   color: crimson;
+}
+
+.glyphicon.glyphicon-pencil {
+  color: dimgrey;
+  padding-top: 3px;
 }
 
 ::-webkit-input-placeholder {

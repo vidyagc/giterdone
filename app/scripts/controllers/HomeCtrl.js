@@ -4,6 +4,10 @@
         this.tasksIncomplete = Task.tasksIncomplete;
 
         this.addTask = function() {
+          if (this.newTask.priority==undefined)
+          {
+              this.newTask.priority="2";
+          }
             this.newTask.status = 'incomplete';
             this.newTask.date = Math.round(Date.now() / 1000);
             this.tasksIncomplete.$add(this.newTask);
