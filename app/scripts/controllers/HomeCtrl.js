@@ -9,17 +9,21 @@
           {
             this.newTask.priority="2";
           }
+
+          var priorityThread = getPriority(this.newTask.priority);
+
             this.newTask.status = 'incomplete';
             this.newTask.date = Math.round(Date.now() / 1000);
+            this.newTask.pThread = priorityThread;
             this.tasksIncomplete.$add(this.newTask);
             this.newTask = {}
         }
 
 
-        this.getPriority = function(p) {
+      function getPriority(p) {
 
           var priorityArray = ["High", "Medium", "Low"];
-          pArrayVals = [["High", 1], ["Medium", 2], ["Low",3]]
+          //pArrayVals = [["High", 1], ["Medium", 2], ["Low",3]]
           var newPriorities = [];
           var index=parseInt(p)-1;
 
@@ -29,10 +33,17 @@
           newPriorities.push(priorityArray[0]);
           newPriorities.push(priorityArray[1]);
 
-          return newPriorities;
+          var priorityThread=newPriorities[0]+","+pVal(newPriorities[0])+","+newPriorities[1]//+","+pVal(newPriorities[1])+","+newPriorities[2]+","+pVal(newPriorities[2]);
+          // for (i=0;i++;i<=2) {
+          //   priorityThread+=newPriorities[i]+","+pVal(newPriorities[i])+",";
+          //   console.log(priorityThread);
+          //   priorityThread='test';
+          // }
+          console.log(priorityThread);
+          return priorityThread//newPriorities;
           }
 
-        this.pVal = function(priority) {
+        function pVal(priority) {
           var val;
           switch (priority) {
             case 'High':
@@ -63,7 +74,7 @@
                   //console.log(newPriority);
               }
               else {
-                newP = taskid.title;
+                newP = taskid.priority;
               }
 
               firebase.database().ref('tasks/' + taskid.$id).set({
@@ -71,12 +82,6 @@
                   title: newTitle,
                   priority: newP,
                   status: taskid.status
-                  // if (newPriority!=undefined) {
-                  //   priority: newPriority
-                  // }
-                  // else {
-                  //   priority: taskid.priority
-                  // }
               });
 
         }
