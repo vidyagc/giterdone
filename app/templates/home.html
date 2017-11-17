@@ -29,15 +29,32 @@
                         <li class="list-group-item list-style-do" ng-class="{'h-fade': task.priority == 1, 'm-fade': task.priority == 2, 'l-fade': task.priority == 3}">
                           <table><col width="35"><col width="310"><col width="27"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button></td>
 
-<!-- <ng-form name=form1> , onclick="blah=document.getElementById('demo3').value; console.log(blah)" -->
+                              <td class="text-td"><input id="updateTask" ng-model="newTitle" ng-init="newTitle=task.title" style="text" class="text-box-style" type="text" disabled /></td>
 
-                            <ng-form name="idForm">
-                              <td class="text-td"><input ng-model="upTitle" ng-init="upTitle=task.title" style="text" class="text-box-style" type="text" /></td>
-                            </ng-form>
+                            <td class="icon-td"><button type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil" onclick="document.getElementById('updateTask').disabled=false" ng-click="newP=true"></span></button></td></tr>
+<!-- <form name="updateForm"> -->
 
-                              <button class="submit-with-icon" ng-click="home.updateTask(task, upTitle)"><span class="glyphicon glyphicon-ok-circle" style="vertical-align: middle;"></span></button>
-<!-- </ng-form> -->
-                            <td class="icon-td"><button type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil"></span></button></td></tr>
+                            <tr ng-show="newP"><td></td>
+                            <td>
+                              <span style="display: block; padding-left: 4px;" id="priority-font"><span style="color:blue">{{ home.getPriority(task.priority)[0] }}&nbsp;&nbsp;</span>
+
+                              <input type="radio" name="updatePriority" ng-model="newPriority" value="{{ home.pVal(home.getPriority(task.priority)[1]) }}"> {{home.getPriority(task.priority)[1]}}
+                              <!-- {{ home.pVal(home.getPriority(task.priority)[1]) }} -->
+                              <input type="radio" name="updatePriority" ng-model="newPriority" value="{{ home.pVal(home.getPriority(task.priority)[2]) }}"> {{home.getPriority(task.priority)[2]}}</span>
+                              <!-- {{ home.pVal(home.getPriority(task.priority)[2]) }} -->
+                            </td>
+
+                            <td>
+                             <!-- hide -->
+                              <button class="submit-with-icon" style="float: right !important;" ng-click="home.updateTask(task, newTitle, newPriority); newP=false" onclick="document.getElementById('updateTask').disabled=true"><span class="glyphicon glyphicon-ok" style="vertical-align: middle;"></span></button>
+                            </td>
+                            <!-- ng-if to print radio buttons that aren't current status
+                            ng-show and hide to show radio boxes when click pencil
+                            later, change pencil to save button
+                            include all in form, so return yields a submit -->
+                        </tr>
+
+<!-- </form> -->
                           </table>
                             <!-- <span ng-hide="editform"><tr>{{color.name}} test</tr></span> ng-click="color.name='hi'" -->
                         </li>
@@ -46,7 +63,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <div class="navbar" id="footer">

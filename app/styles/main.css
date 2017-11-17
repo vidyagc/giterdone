@@ -193,6 +193,11 @@ div.list-container {
   color: green;
 }
 
+.glyphicon.glyphicon-ok {
+  font-size: 15px;
+  color: green;
+}
+
 .glyphicon.glyphicon-ok-sign {
   font-size: 25px;
   color: crimson;
