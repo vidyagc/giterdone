@@ -9,8 +9,8 @@
         <div class="panel panel-default">
             <div class="panel-heading panel-default rust-font font-pb">Active</div>
 
-            <div class="panel-body"> <!--text-center-->
-                <ul class="list-group"> <!--text-left-->
+            <div class="panel-body">
+                <ul class="list-group">
 
                     <span>
                       <li class="list-group-item list-style-do">
@@ -25,38 +25,27 @@
                         </form>
                       </li>
                     </span>
-                    <span ng-repeat="task in home.tasksIncomplete | orderBy:'priority'">
+                    <span ng-repeat="task in home.tasksIncomplete | orderBy:'pThread.split(\',\')[1]'">
                         <li class="list-group-item list-style-do" ng-class="{'h-fade': task.priority == 1, 'm-fade': task.priority == 2, 'l-fade': task.priority == 3}">
                           <table><col width="35"><col width="310"><col width="27"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button></td>
 
                               <td class="text-td"><input id="updateTask" ng-model="newTitle" ng-init="newTitle=task.title" style="text" class="text-box-style" type="text" disabled /></td>
 
-                            <td class="icon-td"><button type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil" onclick="document.getElementById('updateTask').disabled=false" ng-click="newP=true"></span></button></td></tr>
-<!-- <form name="updateForm"> -->
+                            <td class="icon-td">
+                              <button ng-show="newP" class="submit-with-icon" style="float: right !important;" ng-click="home.updateTask(task, newTitle, newPriority); newP=false; editP=false;" onclick="document.getElementById('updateTask').disabled=true; document.getElementById('updateTask').focus();"><span class="glyphicon glyphicon-ok" style="vertical-align: middle;"></span></button>
+                              <button ng-hide="editP" type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil" onclick="document.getElementById('updateTask').disabled=false" ng-click="newP=true; subP=true; editP=true;"></span></button></td></tr>
 
                             <tr ng-show="newP"><td></td>
                             <td>
-                              <span style="display: block; padding-left: 4px;" id="priority-font"><span style="color:blue">{{ home.getPriority(task.priority)[0] }}&nbsp;&nbsp;</span>
+                              <span style="display: block; padding-left: 4px;" id="priority-font"><span style="color:blue">{{ task.pThread.split(',')[0] }}&nbsp;&nbsp;</span>
 
-                              <input type="radio" name="updatePriority" ng-model="newPriority" value="{{ home.pVal(home.getPriority(task.priority)[1]) }}"> {{home.getPriority(task.priority)[1]}}
-                              <!-- {{ home.pVal(home.getPriority(task.priority)[1]) }} -->
-                              <input type="radio" name="updatePriority" ng-model="newPriority" value="{{ home.pVal(home.getPriority(task.priority)[2]) }}"> {{home.getPriority(task.priority)[2]}}</span>
-                              <!-- {{ home.pVal(home.getPriority(task.priority)[2]) }} -->
+                              <input type="radio" name="updatePriority" ng-model="newPriority" value="{{ task.pThread.split(',')[3] }}"> {{task.pThread.split(',')[2]}}
+                              <input type="radio" name="updatePriority" ng-model="newPriority" value="{{ task.pThread.split(',')[5] }}"> {{task.pThread.split(',')[4]}}</span>
                             </td>
 
-                            <td>
-                             <!-- hide -->
-                              <button class="submit-with-icon" style="float: right !important;" ng-click="home.updateTask(task, newTitle, newPriority); newP=false" onclick="document.getElementById('updateTask').disabled=true"><span class="glyphicon glyphicon-ok" style="vertical-align: middle;"></span></button>
-                            </td>
-                            <!-- ng-if to print radio buttons that aren't current status
-                            ng-show and hide to show radio boxes when click pencil
-                            later, change pencil to save button
-                            include all in form, so return yields a submit -->
                         </tr>
 
-<!-- </form> -->
                           </table>
-                            <!-- <span ng-hide="editform"><tr>{{color.name}} test</tr></span> ng-click="color.name='hi'" -->
                         </li>
                     </span>
                 </ul>

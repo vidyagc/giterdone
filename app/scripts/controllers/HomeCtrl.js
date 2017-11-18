@@ -23,7 +23,6 @@
       function getPriority(p) {
 
           var priorityArray = ["High", "Medium", "Low"];
-          //pArrayVals = [["High", 1], ["Medium", 2], ["Low",3]]
           var newPriorities = [];
           var index=parseInt(p)-1;
 
@@ -33,14 +32,8 @@
           newPriorities.push(priorityArray[0]);
           newPriorities.push(priorityArray[1]);
 
-          var priorityThread=newPriorities[0]+","+pVal(newPriorities[0])+","+newPriorities[1]//+","+pVal(newPriorities[1])+","+newPriorities[2]+","+pVal(newPriorities[2]);
-          // for (i=0;i++;i<=2) {
-          //   priorityThread+=newPriorities[i]+","+pVal(newPriorities[i])+",";
-          //   console.log(priorityThread);
-          //   priorityThread='test';
-          // }
-          console.log(priorityThread);
-          return priorityThread//newPriorities;
+          var priorityThread=newPriorities[0]+","+pVal(newPriorities[0])+","+newPriorities[1]+","+pVal(newPriorities[1])+","+newPriorities[2]+","+pVal(newPriorities[2]);
+          return priorityThread;
           }
 
         function pVal(priority) {
@@ -71,17 +64,19 @@
               var newP;
               if (newPriority!=undefined) {
                 newP = newPriority;
-                  //console.log(newPriority);
+                priorityThread = getPriority(newPriority);
               }
               else {
                 newP = taskid.priority;
+                priorityThread = taskid.pThread;
               }
 
               firebase.database().ref('tasks/' + taskid.$id).set({
                   date: taskid.date,
                   title: newTitle,
                   priority: newP,
-                  status: taskid.status
+                  status: taskid.status,
+                  pThread: priorityThread
               });
 
         }
