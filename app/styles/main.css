@@ -1,0 +1,227 @@
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  background-image: url("/assets/images/background.jpg");
+  background-repeat: repeat-y;
+}
+
+.pull-it-right {
+  text-align: right;
+}
+
+.list-style-do {
+  margin: 5px 0px;
+  max-width: 400px;
+  min-width: 400px;
+  padding-left:5px;
+  text-align: left;
+  background: #ebe3c3 !important; /*  */
+  border-color: #887159 !important; /*  */
+}
+
+table {
+  width: 372px;
+  table-layout: fixed;
+}
+
+.text-td {
+  word-wrap:break-word;
+}
+
+.icon-td {
+  vertical-align: top
+}
+
+div.list-container {
+  display: table;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.h-fade {
+  background-image: linear-gradient(left, red, red .35%, transparent 2.45%, transparent 100%) !important;
+  background-image: -webkit-linear-gradient(left, red, red .35%, transparent 2.45%, transparent 100%) !important;
+}
+
+.m-fade {
+  background-image: linear-gradient(left, goldenrod, goldenrod .35%, transparent 2.45%, transparent 100%) !important;
+  background-image: -webkit-linear-gradient(left, goldenrod, goldenrod .35%, transparent 2.45%, transparent 100%) !important;
+}
+
+.l-fade {
+  background-image: linear-gradient(left, DarkSeaGreen , DarkSeaGreen  .35%, transparent 2.45%, transparent 100%) !important;
+  background-image: -webkit-linear-gradient(left, DarkSeaGreen , DarkSeaGreen   .35%, transparent 2.45%, transparent 100%) !important;
+}
+
+#footer {
+  font-family: Piedra;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 13px;
+  letter-spacing: .5px;
+	vertical-align:middle;
+	text-align:center;
+}
+
+#priority-font {
+  font-family: Piedra;
+  font-style: normal;
+  font-variant: normal;
+  /*font-weight: 100;*/
+  line-height: 20px;
+  font-size: 13px;
+  letter-spacing: .5px;
+}
+
+.rust-font {
+  font-family: Piedra;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.font-t {
+  font-size: 22px;
+  letter-spacing: .5px;
+}
+
+.font-pb {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.rust-font-h {
+  font-family: Piedra;
+	font-size: 40px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+  letter-spacing: .5px;
+}
+
+#holder
+{
+	display:table-cell;
+  padding-top: 19px;
+  margin-bottom: 15px;
+	/*vertical-align:middle;*/
+	text-align:center;
+  background:url(/assets/images/wood-plank-new.png) no-repeat center center;
+	height:200px;
+	width:390px;
+}
+
+.control-btn {
+  text-align:right;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.panel-body {
+  padding: 30px !important;
+  /*background: transparent !important;*/
+  background: #c9a884;
+}
+
+.panel-default {
+  border-color: #887159 !important;
+  border-width: 2px !important;
+}
+.panel-heading {
+  /*background: transparent !important;*/
+  background: #ecdac5 !important;
+}
+
+.submit-with-icon {
+  background: transparent;
+  border: 0px;
+  padding: 0;
+  outline: 0;
+  float: left;
+}
+
+.control-btn {
+  padding-top: 0;
+}
+
+.btn:focus,.btn:active {
+   outline: none !important;
+}
+
+.links-btn {
+    background: transparent;
+    margin-bottom: 15px;
+    font-family: Piedra;
+  	font-style: normal;
+  	font-variant: normal;
+  	font-weight: 400;
+  	line-height: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.btn-default {
+  background: #ebe3c3 !important;
+  border-color: #887159 !important;
+}
+
+.text-box-style {
+  background: transparent;
+  border: 0px;
+  outline: 0;
+  line-height: 25px;
+  padding: 0 0 0 5px;
+  vertical-align: bottom;
+  width: 325px;
+}
+
+#clear-btn {
+  color: white;
+  background-color: crimson !important;
+  cursor: pointer;
+}
+
+.glyphicon.glyphicon-ok-circle {
+  font-size: 25px;
+  color: green;
+}
+
+.glyphicon.glyphicon-ok {
+  font-size: 15px;
+  color: green;
+}
+
+.glyphicon.glyphicon-ok-sign {
+  font-size: 25px;
+  color: crimson;
+}
+
+.glyphicon.glyphicon-remove {
+  font-size: 17px;
+  color: crimson;
+}
+
+.glyphicon.glyphicon-pencil {
+  color: dimgrey;
+  padding-top: 3px;
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
