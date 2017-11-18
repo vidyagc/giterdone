@@ -32,14 +32,13 @@
 
                               <td class="text-td">
                                 <div ng-hide=oldT>{{task.title}}</div>
-                                <input ng-show="newT" id="updateTask" ng-model="newTitle" ng-init="newTitle=task.title" style="text" class="text-box-style" type="text" /> <!-- disabled -->
-                                <!-- -->
+                                <input ng-show="newT" id="updateTask" ng-model="newTitle" ng-init="newTitle=task.title" style="text" class="text-box-style" type="text" /> 
                               </td>
 
                             <td class="icon-td">
-                              <button ng-show="newP" class="submit-with-icon" style="float: right !important;" ng-click="home.updateTask(task, newTitle, newPriority); newP=false; editP=false; oldT=false; newT=false;"> <!-- onclick="document.getElementById('updateTask').disabled=true;" -->
+                              <button ng-show="newP" class="submit-with-icon" style="float: right !important;" ng-click="home.updateTask(task, newTitle, newPriority); newP=false; editP=false; oldT=false; newT=false;">
                                 <span class="glyphicon glyphicon-ok" style="vertical-align: middle;"></span></button>
-                              <button ng-hide="editP" type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil"  ng-click="newP=true; subP=true; editP=true; oldT=true; newT=true"><!--onclick="document.getElementById('updateTask').disabled=false;" -->
+                              <button ng-hide="editP" type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil"  ng-click="newP=true; subP=true; editP=true; oldT=true; newT=true">
                               </span></button></td></tr>
 
                             <tr ng-show="newP"><td></td>
