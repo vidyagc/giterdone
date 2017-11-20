@@ -5,18 +5,19 @@
 
         this.addTask = function() {
 
-          if (this.newTask.priority==undefined)
+          if (this.priority==undefined)
           {
-            this.newTask.priority="2";
+            this.priority="2";
           }
 
-          var priorityThread = getPriority(this.newTask.priority);
+          var priorityThread = getPriority(this.priority);
 
-            this.newTask.status = 'incomplete';
-            this.newTask.date = Math.round(Date.now() / 1000);
-            this.newTask.pThread = priorityThread;
-            this.tasksIncomplete.$add(this.newTask);
-            this.newTask = {}
+          this.newTask.status = 'incomplete';
+          this.newTask.date = Math.round(Date.now() / 1000);
+          this.newTask.pThread = priorityThread;
+          this.tasksIncomplete.$add(this.newTask);
+          this.newTask = {}
+
         }
 
 
@@ -53,7 +54,6 @@
 
         this.completeTask = function(taskid) {
             firebase.database().ref('tasks/' + taskid.$id).set({
-                date: taskid.date,
                 title: taskid.title,
                 status: 'complete'
             });
@@ -61,20 +61,16 @@
 
             this.updateTask = function(taskid, newTitle, newPriority) {
 
-              var newP;
               if (newPriority!=undefined) {
-                newP = newPriority;
                 priorityThread = getPriority(newPriority);
               }
               else {
-                newP = taskid.priority;
                 priorityThread = taskid.pThread;
               }
 
               firebase.database().ref('tasks/' + taskid.$id).set({
                   date: taskid.date,
                   title: newTitle,
-                  priority: newP,
                   status: taskid.status,
                   pThread: priorityThread
               });

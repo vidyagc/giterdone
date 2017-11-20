@@ -1,65 +1,57 @@
 <div class="container">
-
-    <div class="list-container">
-
-        <div class="control-btn">
-            <a ui-sref="history"><button type="button" class="btn btn-default links-btn">Ta Do History</button></a>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading panel-default rust-font font-pb">Active</div>
-
-            <div class="panel-body">
-                <ul class="list-group">
-
-                    <span>
-                      <li class="list-group-item list-style-do">
-                        <form name="taskForm" novalidate>
-                          <button ng-disabled="taskForm.$invalid" ng-click="home.addTask()" class="submit-with-icon"><span class="glyphicon glyphicon-ok-circle" style="vertical-align: middle;"></span></button>
-
-                          <input style="text" class="text-box-style" ng-model="home.newTask.title" placeholder="Enter New Ta Do" type="text" required /><br>
-                          <span style="display: block; padding-left: 30px;" id="priority-font">Priority&nbsp;&nbsp;
-                          <input type="radio" name="priority" ng-model="home.newTask.priority" value=1> High
-                          <input type="radio" name="priority" ng-model="home.newTask.priority" value=2 ng-checked="true"> Medium
-                          <input type="radio" name="priority" ng-model="home.newTask.priority" value=3> Low</span>
-                        </form>
-                      </li>
-                    </span>
-                    <span ng-repeat="task in home.tasksIncomplete | orderBy:'pThread.split(\',\')[1]'">
-
-                        <li class="list-group-item list-style-do" ng-class="{'h-fade': task.priority == 1, 'm-fade': task.priority == 2, 'l-fade': task.priority == 3}">
-                          <table><col width="35"><col width="310"><col width="27"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button></td>
-
-                              <td class="text-td">
-                                <div ng-hide=oldT>{{task.title}}</div>
-                                <input ng-show="newT" id="updateTask" ng-model="newTitle" ng-init="newTitle=task.title" style="text" class="text-box-style" type="text" /> 
-                              </td>
-
-                            <td class="icon-td">
-                              <button ng-show="newP" class="submit-with-icon" style="float: right !important;" ng-click="home.updateTask(task, newTitle, newPriority); newP=false; editP=false; oldT=false; newT=false;">
-                                <span class="glyphicon glyphicon-ok" style="vertical-align: middle;"></span></button>
-                              <button ng-hide="editP" type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil"  ng-click="newP=true; subP=true; editP=true; oldT=true; newT=true">
-                              </span></button></td></tr>
-
-                            <tr ng-show="newP"><td></td>
-                            <td>
+   <div class="list-container">
+      <div class="control-btn">
+         <a ui-sref="history"><button type="button" class="btn btn-default links-btn">Ta Do History</button></a>
+      </div>
+      <div class="panel panel-default">
+         <div class="panel-heading panel-default rust-font font-pb">Active</div>
+         <div class="panel-body">
+            <ul class="list-group">
+               <span>
+                  <li class="list-group-item list-style-do">
+                     <form name="taskForm" novalidate>
+                        <button ng-disabled="taskForm.$invalid" ng-click="home.addTask()" class="submit-with-icon"><span class="glyphicon glyphicon-ok-circle" style="vertical-align: middle;"></span></button>
+                        <input style="text" class="text-box-style" ng-model="home.newTask.title" placeholder="Enter New Ta Do" type="text" required /><br>
+                        <span style="display: block; padding-left: 30px;" id="priority-font">Priority&nbsp;&nbsp;
+                        <input type="radio" name="priority" ng-model="home.priority" value=1> High
+                        <input type="radio" name="priority" ng-model="home.priority" value=2 ng-checked="true"> Medium
+                        <input type="radio" name="priority" ng-model="home.priority" value=3> Low</span>
+                     </form>
+                  </li>
+               </span>
+               <span ng-repeat="task in home.tasksIncomplete | orderBy:'pThread.split(\',\')[1]'">
+                  <li class="list-group-item list-style-do" ng-class="{'h-fade': task.pThread.split(',')[1] == '1', 'm-fade': task.pThread.split(',')[1] == '2', 'l-fade': task.pThread.split(',')[1] == '3'}">
+                     <table>
+                        <col width="35">
+                        <col width="310">
+                        <col width="27">
+                        <tr>
+                           <td class="icon-td"><button class="submit-with-icon" ng-click="home.completeTask(task)"><span class="glyphicon glyphicon-ok-sign" style="vertical-align: middle; margin-right:5px"></span></button></td>
+                           <td class="text-td">
+                              <div ng-hide=oldT>{{task.title}}</div>
+                              <input ng-show="newT" id="updateTask" ng-model="newTitle" ng-init="newTitle=task.title" style="text" class="text-box-style" type="text" />
+                           </td>
+                           <td class="icon-td">
+                              <button ng-show="newP" class="submit-with-icon" style="float: right !important;" ng-click="home.updateTask(task, newTitle, newPriority); newP=false; editP=false; oldT=false; newT=false;"><span class="glyphicon glyphicon-ok" style="vertical-align: middle;"></span></button>
+                              <button ng-hide="editP" type="button" class="submit-with-icon" style="float: right !important;"><span class="glyphicon glyphicon-pencil"  ng-click="newP=true; subP=true; editP=true; oldT=true; newT=true"></span></button>
+                           </td>
+                        </tr>
+                        <tr ng-show="newP">
+                           <td></td>
+                           <td>
                               <span style="display: block; padding-left: 4px;" id="priority-font"><span style="color:blue">{{ task.pThread.split(',')[0] }}&nbsp;&nbsp;</span>
-
                               <input type="radio" name={{task.date}} ng-model="newPriority" value="{{ task.pThread.split(',')[3] }}"> {{task.pThread.split(',')[2]}}
                               <input type="radio" name={{task.date}} ng-model="newPriority" value="{{ task.pThread.split(',')[5] }}"> {{task.pThread.split(',')[4]}}</span>
-                            </td>
-
+                           </td>
                         </tr>
-
-                          </table>
-                        </li>
-                    </span>
-                </ul>
-            </div>
-        </div>
-    </div>
+                     </table>
+                  </li>
+               </span>
+            </ul>
+         </div>
+      </div>
+   </div>
 </div>
-
 <div class="navbar" id="footer">
-    Copyright <span class="glyphicon glyphicon-copyright-mark" style="vertical-align: top; padding-top: 1px "></span>&nbsp;Vidya Neni 2017 All Rights Reserved
+   Copyright <span class="glyphicon glyphicon-copyright-mark" style="vertical-align: top; padding-top: 1px "></span>&nbsp;Vidya Neni 2017 All Rights Reserved
 </div>
