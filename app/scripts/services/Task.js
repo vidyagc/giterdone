@@ -8,10 +8,10 @@
         Task.tasksExpired = $firebaseArray(ref.orderByChild("status").equalTo("expired"));
 
         setInterval(function(){
-          var query = ref.orderByChild("date").endAt(Math.round(Date.now() / 1000) - 90);
+          var query = ref.orderByChild("status").equalTo('incomplete');
           query.on("value", function(snapshot) {
             snapshot.forEach(function(snapshot) {
-              if (snapshot.val().status == "incomplete") {
+              if (snapshot.val().date < (Math.round(Date.now() / 1000) - 89)) {
                 snapshot.ref.update({status: 'expired'})
               }
             });
