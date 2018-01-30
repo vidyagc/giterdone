@@ -11,19 +11,23 @@
 
 <body>
 
-    <div class="row" id="layout">
+    <div class ="container">
+        <div class="row" id="layout">
+            <div class="col-md-12 text-center">
 
-        <div class="col-md-12 text-center">
+                <div id="holder" style="display: inline-block;">
+                    <h2 class="rust-font-h">Git'er Done!</h2>
+                    <h4 class="rust-font font-t">A task management app to help<p></p>you quit yer piddlin' n' git t'werk!</h4>
+                </div>
 
-            <div id="holder" style="display: inline-block;">
-                <h2 class="rust-font-h">Git'er Done!</h2>
-                <h4 class="rust-font font-t">A task management app to help<p></p>you quit yer piddlin' n' git t'werk!</h4>
+                <ui-view></ui-view>
+
             </div>
-
-            <ui-view></ui-view>
-
         </div>
+    </div>
 
+    <div class="navbar" id="footer">
+       Copyright <span class="glyphicon glyphicon-copyright-mark" style="vertical-align: top; padding-top: 2px "></span>&nbsp;Vidya Neni 2017 All Rights Reserved
     </div>
 
     <!-- Angular -->
@@ -62,7 +66,6 @@
     <script type='text/javascript' src='https://code.jquery.com/jquery.min.js'></script>
 
     <script>
-
 </body>
 
 </html>

@@ -1,41 +1,38 @@
-<div class="container">
+<div class="list-container">
 
-    <div class="list-container">
+    <div class="control-btn">
+        <a ui-sref="home"><button type="button" class="btn btn-default links-btn">Active Ta Do</button></a>
+    </div>
 
-        <div class="control-btn">
-            <a ui-sref="home"><button type="button" class="btn btn-default links-btn">Active Ta Do</button></a>
-        </div>
+    <div class="panel panel-default">
+        <div class="panel-heading panel-default  rust-font font-pb">History</div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading panel-default  rust-font font-pb">History</div>
+        <div class="panel-body">
+          <div style="width:400px"></div>
 
-            <div class="panel-body">
-              <div style="width:400px"></div>
-
-                <div class="control-btn">
-                    <button ng-click="history.deleteAll();"  type="button" class="btn btn-default links-btn" id="clear-btn" style="float: left;" >Clear All</button>
-                </div>
-
-                <p>&nbsp;</p>
-                <ul class="list-group"> <!--text-left-->
-                    <span ng-repeat="task in history.tasksComplete"><li class="list-group-item list-style-do">            <table><col width="27"><col width="345"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="history.deleteTask(task)"><span class="glyphicon glyphicon-remove" style="vertical-align: middle; margin-right:5px"></span></button></td><td class="text-td"><s>{{ task.title }}</s>
-                    </td></tr></table>
-                    </li>
-                    </span>
-
-                    <span ng-repeat="task in history.tasksExpired">
-                      <li class="list-group-item list-style-do"><table><col width="27"><col width="345"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="history.deleteTask(task)"><span class="glyphicon glyphicon-remove" style="vertical-align: middle; margin-right:5px"></span></button></td><td class="text-td">{{ task.title }}</td></tr></table>
-                      </li>
-                    </span>
-
-                </ul>
+            <div class="control-btn">
+                <button ng-click="history.deleteAll();"  type="button" class="btn btn-default links-btn" id="clear-btn" style="float: left;" >Clear All</button>
             </div>
 
+            <p>&nbsp;</p>
+            <ul class="list-group"> <!--text-left-->
+                <span ng-repeat="task in history.tasksComplete"><li class="list-group-item list-style-do">            <table><col width="27"><col width="345"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="history.deleteTask(task)"><span class="glyphicon glyphicon-remove" style="vertical-align: middle; margin-right:5px"></span></button></td><td class="text-td"><s>{{ task.title }}</s>
+                </td></tr></table>
+                </li>
+                </span>
+
+                <span ng-repeat="task in history.tasksExpired">
+                  <li class="list-group-item list-style-do"><table><col width="27"><col width="345"><tr><td class="icon-td"><button class="submit-with-icon" ng-click="history.deleteTask(task)"><span class="glyphicon glyphicon-remove" style="vertical-align: middle; margin-right:5px"></span></button></td><td class="text-td">{{ task.title }}</td></tr></table>
+                  </li>
+                </span>
+
+            </ul>
         </div>
 
     </div>
 
 </div>
+
 
 <div class="navbar" id="footer">
     Copyright <span class="glyphicon glyphicon-copyright-mark" style="vertical-align: top; padding-top: 1px "></span>&nbsp;2017 All Rights Reserved
